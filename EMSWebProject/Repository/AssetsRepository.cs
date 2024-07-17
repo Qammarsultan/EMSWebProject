@@ -89,9 +89,17 @@ namespace EMSWebProject.Repository
             return assignEmployeeAssets.Id;
         }
 
-        public async Task<IEnumerable<ListEmployeeAssetViewModel>> ListAssetandEmployee()
+        public async Task<IEnumerable<ListEmployeeAssetViewModel>> ListAssetandEmployee(int id)
         {
-          var list = await  _context.tblEmployeeAssets.ToListAsync();
+            IEnumerable<EmployeeAssets> list;
+            if (id > 0)
+            {
+                 list = await _context.tblEmployeeAssets.Where(x => x.Id == id).ToListAsync();
+            }
+            else
+            {
+               list = await  _context.tblEmployeeAssets.ToListAsync();
+            }
 
             var res = from e in list
                       join asset in _context.tblAssets

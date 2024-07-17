@@ -12,6 +12,6 @@ namespace EMSWebProject.Interface
         Task<int> DeleteAssetsRecords(int id);
         Task<EmployeeAssestViewModel> EmployeeAssetList();
         Task<int> AssignEmployeeAsset(EmployeeAssets assignEmployeeAssets);
-        Task<IEnumerable<ListEmployeeAssetViewModel>> ListAssetandEmployee();
+        Task<IEnumerable<ListEmployeeAssetViewModel>> ListAssetandEmployee(int id);
     }
 }

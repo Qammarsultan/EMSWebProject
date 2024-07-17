@@ -103,9 +103,10 @@ namespace EMSWebProject.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ListAssestWithEmployee()
+        public async Task<IActionResult> ListAssestWithEmployee(int id)
         {
-          var result = await  _assetsRepository.ListAssetandEmployee();
+            
+          var result = await  _assetsRepository.ListAssetandEmployee(id);
             return View(result);    
         }
     }
